@@ -2,7 +2,7 @@
 *.log
 *.pot
 *.pyc
-Backend/__pycache__/
+__pycache__/
 Backend/local_settings.py
 Backend/db.sqlite3
 Backend/db.sqlite3-journal
