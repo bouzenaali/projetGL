@@ -1,0 +1,31 @@
+### Django ###
+*.log
+*.pot
+*.pyc
+Backend/__pycache__/
+Backend/local_settings.py
+Backend/db.sqlite3
+Backend/db.sqlite3-journal
+Backend/media
+
+Backend/dzMouhami/staticfiles/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+### venv ###
+# Virtualenv
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]cripts
+pyvenv.cfg
+pip-selfcheck.json
