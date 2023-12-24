@@ -29,3 +29,9 @@ venv.bak/
 [Ss]cripts
 pyvenv.cfg
 pip-selfcheck.json
+
+# Ignore database and migration files
+*.sqlite3
+Backend/api/migrations/
+Backend/accounts/migrations/
+Backend/objects/migrations/
