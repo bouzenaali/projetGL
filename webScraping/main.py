@@ -10,11 +10,11 @@ from typing import List
 
 @dataclass
 class LawyerData:
-    full_name: str
-    email: str
-    Tel: str
-    address: str  
-    categories: List[str]
+    full_name: str | None
+    email: str | None
+    Tel: str | None
+    address: str | None  
+    categories: List[str] | None
     
 
 def get_html(url, **Kwargs):
@@ -68,7 +68,7 @@ def parse_lawyer_page(html):
     new_lawyer = LawyerData(
         full_name = extract_text(html, "h1.entry-title"),
         email = extract_text(html, "a[href^='mailto:']"),
-        Tel = extract_text(html, ".phone"),
+        Tel = None,
         address = extract_text(html, ".address"),
         categories = [extract_text(html, ".listing-cat")],
     )
@@ -79,7 +79,7 @@ def parse_lawyer_page(html):
 def main():
     lawyers = []
     baseurl = "https://avocatalgerien.com/listings/page/"
-    for x in range(1, 5):
+    for x in range(1, 2):
         print(f"Getting page: {x}")
         html = get_html(baseurl, page=x)
         if not html:
