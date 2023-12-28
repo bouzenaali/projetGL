@@ -1,10 +1,8 @@
 import httpx
 from selectolax.parser import HTMLParser
-import time
 from urllib.parse import urljoin
 from dataclasses import dataclass, asdict, fields
 import json
-import csv
 from typing import List
 
 
@@ -79,7 +77,7 @@ def parse_lawyer_page(html):
 def main():
     lawyers = []
     baseurl = "https://avocatalgerien.com/listings/page/"
-    for x in range(1, 2):
+    for x in range(1, 30):
         print(f"Getting page: {x}")
         html = get_html(baseurl, page=x)
         if not html:
@@ -89,7 +87,6 @@ def main():
             print(url)
             html = get_html(url)
             lawyers.append(parse_lawyer_page(html))
-
         export_to_json(lawyers)
 
 
