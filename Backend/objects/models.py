@@ -15,8 +15,8 @@ class Category(models.Model):
 
 class Review(models.Model):
     lawyer = models.ForeignKey(Lawyer, on_delete=models.CASCADE)
-    reviewer_name = models.CharField(max_length=255)
-    reviewer_email = models.EmailField()
+    username = models.CharField(max_length=255)
+    email = models.EmailField()
     review_text = models.TextField()
     number_of_stars = models.IntegerField()
 
