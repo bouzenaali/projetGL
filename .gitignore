@@ -10,6 +10,8 @@ Backend/media
 
 Backend/dzMouhami/staticfiles/
 
+Backend/googledata.json
+
 # Environments
 .env
 .venv
