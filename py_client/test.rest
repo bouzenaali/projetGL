@@ -1,3 +1,6 @@
 endpoints:
-POST localhost:8080/accounts/google/login
-POST localhost:8080/api/accounts/logout 
+POST localhost:8080/accounts/google/login #google login
+POST localhost:8080/api/accounts/logout #logout
+POST http://127.0.0.1:8000/accounts/login/ #login
+POST http://127.0.0.1:8000/accounts/password/reset/ #reset password
+POST http://127.0.0.1:8000/accounts/signup/ #signup normal user
