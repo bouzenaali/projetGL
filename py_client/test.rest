@@ -1,6 +1,3 @@
-POST localhost:8080/api/v1/employees
-{
-    "name": "John",
-    "surname": "Doe",
-    "email": "  ",
-}
+endpoints:
+POST localhost:8080/accounts/google/login
+POST localhost:8080/api/accounts/logout 
