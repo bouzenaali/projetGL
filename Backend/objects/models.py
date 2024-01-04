@@ -31,3 +31,10 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+    
+class Wilaya(models.Model):
+    name = models.CharField(max_length=30)
+
+class Commune(models.Model):
+    name = models.CharField(max_length=30)
+    wilaya = models.ForeignKey(Wilaya, on_delete=models.CASCADE)
