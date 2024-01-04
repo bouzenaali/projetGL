@@ -1,18 +1,21 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
+from objects.models import Wilaya, Commune, Address, Category
+from accounts.models import Lawyer
 
 class LawyerSignupSerializer(serializers.ModelSerializer):
     fullname = serializers.CharField(max_length=50)
-    Wilaya = serializers.CharField(max_length=30)
-    Commune = serializers.CharField(max_length=30)
+    wilaya = serializers.PrimaryKeyRelatedField(queryset=Wilaya.objects.all())
+    commune = serializers.PrimaryKeyRelatedField(queryset=Commune.objects.all())
     Address = serializers.CharField(max_length=30)
     experience = serializers.DecimalField(max_digits=5, decimal_places=2)
     category = serializers.CharField(max_length=30)
     description = serializers.CharField(style={'base_template': 'textarea.html'})
+    link_to_personal_website = serializers.URLField(required=False)
 
     class Meta:
         model = User
-        fields = ('fullname', 'username', 'password', 'Wilaya', 'Commune', 'Address', 'experience', 'category', 'description')
+        fields = ('fullname', 'username', 'password', 'wilaya', 'commune', 'Address', 'experience', 'category', 'description', 'link_to_personal_website')
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
@@ -20,12 +23,18 @@ class LawyerSignupSerializer(serializers.ModelSerializer):
             validated_data['username'],
             password=validated_data['password']
         )
-        user.fullname = validated_data['fullname']
-        user.Wilaya = validated_data['Wilaya']
-        user.Commune = validated_data['Commune']
-        user.Address = validated_data['Address']
-        user.experience = validated_data['experience']
-        user.category = validated_data['category']
-        user.description = validated_data['description']
-        user.save()
-        return user
+        address = Address.objects.get(id=validated_data['address'])
+        categories = Category.objects.filter(id__in=validated_data['categories'])
+        wilaya = validated_data['wilaya']
+        commune = validated_data['commune']
+        lawyer = Lawyer.objects.create(
+            user=user,
+            address=address,
+            wilaya=wilaya,
+            commune=commune,
+            link_to_personal_website=validated_data.get('link_to_personal_website', ''),
+            activated=validated_data.get('activated', False)
+        )
+        lawyer.categories.set(categories)
+        lawyer.save()
+        return lawyer
