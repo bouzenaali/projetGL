@@ -87,4 +87,4 @@ class LawyerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Lawyer
-        fields = ['id', 'user', 'wilaya', 'commune', 'address', 'categories', 'link_to_personal_website', 'activated']
+        fields = ['id', 'user','description', 'wilaya', 'commune', 'address', 'categories', 'link_to_personal_website', 'activated']
