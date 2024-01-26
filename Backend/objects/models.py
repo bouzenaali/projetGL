@@ -2,8 +2,8 @@ from django.db import models
 from accounts.models import Lawyer
 
 class Address(models.Model):
-    street = models.CharField(max_length=255)
-    city = models.CharField(max_length=255)
+    wilaya = models.ForeignKey('objects.Wilaya', on_delete=models.CASCADE)
+    commune = models.ForeignKey('objects.Commune', on_delete=models.CASCADE)
     full_address = models.URLField(blank=True, null=True) # google maps link
 
 
@@ -41,6 +41,6 @@ class Wilaya(models.Model):
 class Commune(models.Model):
     name = models.CharField(max_length=30)
     wilaya = models.ForeignKey(Wilaya, on_delete=models.CASCADE)
-    
+
     def __str__(self):
         return self.name
