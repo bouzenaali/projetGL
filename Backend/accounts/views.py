@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 from rest_framework.response import Response
 from .serializers import LawyerSignupSerializer, LawyerSerializer
-from rest_framework import generics
+from rest_framework import generics, filters
 from .models import Lawyer
 from rest_framework.pagination import PageNumberPagination
 
@@ -19,3 +19,9 @@ class HomeView(generics.ListAPIView):
     queryset = Lawyer.objects.all()
     serializer_class = LawyerSerializer
     pagination_class = PageNumberPagination
+
+class SearchLawyerView(generics.ListAPIView):
+    queryset = Lawyer.objects.all()
+    serializer_class = LawyerSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['user__username']
