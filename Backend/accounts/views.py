@@ -5,7 +5,7 @@ from .serializers import LawyerSignupSerializer, LawyerSerializer
 from rest_framework import generics, filters
 from .models import Lawyer
 from rest_framework.pagination import PageNumberPagination
-
+from django_filters.rest_framework import DjangoFilterBackend
 
 def logout_view(request):
     logout(request)
@@ -23,5 +23,6 @@ class HomeView(generics.ListAPIView):
 class SearchLawyerView(generics.ListAPIView):
     queryset = Lawyer.objects.all()
     serializer_class = LawyerSerializer
-    filter_backends = [filters.SearchFilter]
+    filter_backends = [filters.SearchFilter, DjangoFilterBackend]
     search_fields = ['user__username']
+    filterset_fields = ['wilaya', 'categories__name']
