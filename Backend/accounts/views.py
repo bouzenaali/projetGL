@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 from rest_framework.response import Response
-from .serializers import LawyerSignupSerializer
+from .serializers import LawyerSignupSerializer, LawyerSerializer
 from rest_framework import generics
+from .models import Lawyer
+from rest_framework.pagination import PageNumberPagination
 
-def home(request):
-    return Response({'message': 'you are logged in'})
 
 def logout_view(request):
     logout(request)
@@ -13,3 +13,9 @@ def logout_view(request):
 
 class LawyerSignupView(generics.CreateAPIView):
     serializer_class = LawyerSignupSerializer
+
+
+class HomeView(generics.ListAPIView):
+    queryset = Lawyer.objects.all()
+    serializer_class = LawyerSerializer
+    pagination_class = PageNumberPagination

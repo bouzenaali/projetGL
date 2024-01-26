@@ -47,3 +47,44 @@ class LawyerSignupSerializer(serializers.ModelSerializer):
         lawyer.categories.set(categories)
         lawyer.save()
         return lawyer
+
+
+from rest_framework import serializers
+from .models import Lawyer, CustomUser
+from objects.models import Wilaya, Commune, Address, Category
+
+class CustomUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ['username', 'email']
+
+class WilayaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Wilaya
+        fields = ['name']
+
+class CommuneSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Commune
+        fields = ['name']
+
+class AddressSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Address
+        fields = ['full_address']
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ['name']
+
+class LawyerSerializer(serializers.ModelSerializer):
+    user = CustomUserSerializer()
+    wilaya = WilayaSerializer()
+    commune = CommuneSerializer()
+    address = AddressSerializer()
+    categories = CategorySerializer(many=True)
+
+    class Meta:
+        model = Lawyer
+        fields = ['id', 'user', 'wilaya', 'commune', 'address', 'categories', 'link_to_personal_website', 'activated']
