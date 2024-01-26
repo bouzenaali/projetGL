@@ -26,3 +26,13 @@ class SearchLawyerView(generics.ListAPIView):
     filter_backends = [filters.SearchFilter, DjangoFilterBackend]
     search_fields = ['user__username']
     filterset_fields = ['wilaya', 'categories__name']
+
+    def get_queryset(self):
+        queryset = Lawyer.objects.all()
+        wilaya = self.request.query_params.get('wilaya', None)
+        categories = self.request.query_params.get('categories', None)
+        if wilaya is not None:
+            queryset = queryset.filter(wilaya__name=wilaya)
+        if categories is not None:
+            queryset = queryset.filter(categories__name=categories)
+        return queryset
