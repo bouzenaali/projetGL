@@ -1,6 +1,45 @@
 endpoints:
-POST localhost:8080/accounts/google/login #google login
-POST localhost:8080/api/accounts/logout #logout
+POST http://127.0.0.1:8000/accounts/google/login #google login
+
+POST http://127.0.0.1:8000/api/accounts/logout #logout
+
 POST http://127.0.0.1:8000/accounts/login/ #login
+
 POST http://127.0.0.1:8000/accounts/password/reset/ #reset password
+
 POST http://127.0.0.1:8000/accounts/signup/ #signup normal user
+
+POST http://127.0.0.1:8000/api/accounts/signup/lawyer/ #signup lawyer
+
+
+
+### home
+GET http://127.0.0.1:8000/api/accounts/ #get all lawyers
+
+
+### Signup Lawyer
+POST http://127.0.0.1:8000/api/accounts/signup/lawyer/
+Content-Type: application/json
+
+{
+    "user": {
+        "username": "lawyer9",
+        "password": "password123"
+    },
+    "fullname": "LawyerName",
+    "email": "newemail@gmail.com",
+    "wilaya": 1,
+    "commune": 1,
+    "Address": "3 Clos Les Vergers Kouba Alger",
+    "experience": 10.0,
+    "categories": "Droit Affaires, Droit civil, Droit des sociétés, Droit du travail",
+    "description": "This is a description.",
+    "link_to_personal_website": "http://example.com"
+}
+
+### filter
+GET http://127.0.0.1:8000/api/accounts/search/?wilaya=6&categories__name=droit+civil #filter by wilaya and category
+
+
+### search
+GET http://127.0.0.1:8000/api/accounts/search/?search=ali #search for lawyers by username
