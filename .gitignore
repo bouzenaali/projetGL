@@ -37,3 +37,5 @@ Backend/accounts/migrations/
 Backend/objects/migrations/
 
 todo
+
+py_client
