@@ -1,6 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.contrib.auth import logout
-from rest_framework.response import Response
 from .serializers import LawyerSignupSerializer, LawyerSerializer
 from rest_framework import generics, filters
 from .models import Lawyer
@@ -36,3 +35,7 @@ class SearchLawyerView(generics.ListAPIView):
         if categories is not None:
             queryset = queryset.filter(categories__name=categories)
         return queryset
+
+class LawyerDetailView(generics.RetrieveAPIView):
+    queryset = Lawyer.objects.all()
+    serializer_class = LawyerSerializer
