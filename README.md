@@ -8,27 +8,14 @@
 git clone https://github.com/bouzenaali/projetGL.git
 ```
 
-2. Navigate to the project directory
+3. Build and start the Docker containers:
 ```bash
-cd Backend
-``` 
-
-3. Build the Docker image:
-```bash
-docker build -t my-django-app .
-```
-4. Run the Docker container:
-```bash
-docker run -p 8000:8000 my-django-app
-```
-5. Run the Django migrations:
-```bash
-docker exec -it <container id> python manage.py migrate
+docker-compose up --build
 ```
 
 ## Usage
 
-Once the Docker container is running, you can access the Django application at `http://localhost:8000`.
+Once the Docker containers are running, you can access the backend service at `http://localhost:8000` and the frontend service at `http://localhost:3000`.
 
 
 ## License
