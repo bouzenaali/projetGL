@@ -1,5 +1,12 @@
 # DZ MOUHAMI
-⚖️ this is the backend of the dz-mouhami application
+⚖️ this is dz-mouhami a web annuaire for lawyers
+
+## Description
+this is a web annuaire for lawyers, it's a project for the GL course at École supérieure en Sciences et Technologies de l'Informatique et du Numérique (ESTIN)
+
+## contributors
+- [bouzena ali](github.com/bouzenaali)
+- [Allaoua Youcef](github.com/YoucefAllaoua)
 
 ## Getting Started
 ### Installation
