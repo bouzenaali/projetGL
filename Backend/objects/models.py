@@ -4,8 +4,8 @@ from accounts.models import Lawyer
 class Address(models.Model):
     wilaya = models.ForeignKey('objects.Wilaya', on_delete=models.CASCADE, null=True)
     commune = models.ForeignKey('objects.Commune', on_delete=models.CASCADE, null=True)
-    full_address = models.URLField(blank=True, null=True) # google maps link
-
+    latitude = models.FloatField(blank=True, null=True)
+    longitude = models.FloatField(blank=True, null=True)
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
