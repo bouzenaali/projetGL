@@ -4,7 +4,6 @@
 *.pyc
 __pycache__/
 Backend/local_settings.py
-Backend/db.sqlite3
 Backend/db.sqlite3-journal
 Backend/media
 
@@ -33,7 +32,6 @@ pyvenv.cfg
 pip-selfcheck.json
 
 # Ignore database and migration files
-*.sqlite3
 Backend/api/migrations/
 Backend/accounts/migrations/
 Backend/objects/migrations/
