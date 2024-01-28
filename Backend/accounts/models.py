@@ -30,6 +30,7 @@ class Lawyer(models.Model):
     wilaya = models.ForeignKey('objects.Wilaya', on_delete=models.SET_NULL, null=True, default=6)
     commune = models.ForeignKey('objects.Commune', on_delete=models.SET_NULL, null=True, default=1)
     address = models.ForeignKey('objects.Address', on_delete=models.CASCADE)
+    api_key = models.CharField(max_length=255, blank=True, null=True)
     activated = models.BooleanField(default=False)
 
     def __str__(self):
