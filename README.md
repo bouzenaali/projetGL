@@ -5,7 +5,7 @@
 this is a web annuaire for lawyers, it's a project for the GL course at École supérieure en Sciences et Technologies de l'Informatique et du Numérique (ESTIN)
 
 ## contributors
-- [bouzena ali](github.com/bouzenaali)
+- [Ali BOUZENA](github.com/bouzenaali)
 - [Allaoua Youcef](github.com/YoucefAllaoua)
 
 ## Getting Started
@@ -15,7 +15,7 @@ this is a web annuaire for lawyers, it's a project for the GL course at École s
 git clone https://github.com/bouzenaali/projetGL.git
 ```
 
-3. Build and start the Docker containers:
+2. Build and start the Docker containers:
 ```bash
 docker-compose up --build
 ```
