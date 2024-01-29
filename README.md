@@ -10,6 +10,8 @@
   dz-mouhami a web annuaire for lawyers in Algeria. Built with NextJS and Django.
 </p>
 
+------
+
 ## Description
 this is a web annuaire for lawyers, it's a project for the GL course at École supérieure en Sciences et Technologies de l'Informatique et du Numérique (ESTIN)
 
