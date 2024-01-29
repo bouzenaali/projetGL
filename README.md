@@ -2,7 +2,7 @@
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="./assets/logo.png">
       <source media="(prefers-color-scheme: light)" srcset="./assets/logo.png">
-      <img alt="Tailwind CSS" src="./assets/logo.png" width="250" height="55" style="max-width: 100%;">
+      <img alt="Tailwind CSS" src="./assets/logo.png" width="180" height="40" style="max-width: 100%;">
     </picture>
 </p>
 
