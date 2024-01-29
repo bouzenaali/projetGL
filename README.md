@@ -1,8 +1,8 @@
 <p align="center">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./assets/logo.png">
-      <source media="(prefers-color-scheme: light)" srcset="./assets/logo.png">
-      <img alt="Tailwind CSS" src="./assets/logo.png" width="180" height="40" style="max-width: 100%;">
+      <source media="(prefers-color-scheme: dark)" srcset="./assets/logo.svg">
+      <source media="(prefers-color-scheme: light)" srcset="./assets/logo.svg">
+      <img alt="Tailwind CSS" src="./assets/logo.svg" width="400" height="70" style="max-width: 100%;">
     </picture>
 </p>
 
