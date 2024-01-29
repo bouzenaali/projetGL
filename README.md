@@ -1,5 +1,14 @@
-# DZ MOUHAMI
-⚖️ this is dz-mouhami a web annuaire for lawyers
+<p align="center">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./assets/logo.png">
+      <source media="(prefers-color-scheme: light)" srcset="./assets/logo.png">
+      <img alt="Tailwind CSS" src="./assets/logo.png" width="250" height="55" style="max-width: 100%;">
+    </picture>
+</p>
+
+<p align="center">
+  dz-mouhami a web annuaire for lawyers in Algeria. Built with NextJS and Django.
+</p>
 
 ## Description
 this is a web annuaire for lawyers, it's a project for the GL course at École supérieure en Sciences et Technologies de l'Informatique et du Numérique (ESTIN)
